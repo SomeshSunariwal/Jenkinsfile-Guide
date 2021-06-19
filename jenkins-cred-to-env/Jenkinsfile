@@ -6,18 +6,20 @@ pipeline {
         // Setting the variable to env
         passcode = credentials('default-test-id')
     }
+    // user name and passcode can access using ${passcode_USR} or ${passcode_PSW}
 
     stages {
         stage("Build"){
             steps{
                 echo "Checking Version . . ."
-                sh "User : ${passcode_USR}, Password : ${passcode_PSW}"
             }
         }   
         stage("require credentials here only"){
             steps{
+                
                 echo "Getting Crential First Here"
                 echo "when we require credentials in one step one"
+
                 withCredentials([
                     usernamePassword(credentials: 'default-test-id', usernameVariable: USER, passwordVariable: PWD)
                 ]) {
