@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build'){
+            steps{
+                echo 'Build Done'
+            }
+        }
+        stage('Test'){
+            // only run wen condition fullfiled
+            when {
+                expression {
+                    BRANCH == 'dev' && NAME == 'Test'
+                }
+            }
+            steps{
+                echo 'Test Done'
+            }
+        }
+        stage('Deploy'){
+            steps{
+                echo 'Deploy Done'
+            }
+        }
+    }
+}
