@@ -4,7 +4,8 @@ pipeline {
 
     environment {
         // Setting the variable to env
-        passcode = credentials('default-test-id')
+        // passcode = credentials('default-test-id')
+        VERSION = '1.0'
     }
     // user name and passcode can access using ${passcode_USR} or ${passcode_PSW}
 
@@ -12,6 +13,7 @@ pipeline {
         stage("Build"){
             steps{
                 echo "Checking Version . . ."
+                echo "Version ${Version}"
             }
         }   
         stage("require credentials here only"){
