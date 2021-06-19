@@ -11,7 +11,7 @@ pipeline {
         stage("Build"){
             steps{
                 echo "Checking Version . . ."
-                echo "Version is ${passcode}"
+                echo "User : ${passcode_USR}, Password : ${passcode_PSW}"
             }
         }   
         stage("require credentials here only"){
@@ -19,9 +19,9 @@ pipeline {
                 echo "Getting Crential First Here"
                 echo "when we require credentials in one step one"
                 withCredentials([
-                    usernamePassword(credentials: 'default-test-id', usernameVariable: userName, passwordVariable: password)
+                    usernamePassword(credentials: 'default-test-id', usernameVariable: USER, passwordVariable: PWD)
                 ]) {
-                    echo "userName : ${userName}, Password: ${password}"
+                    echo "userName : ${USER}, Password: ${PWD}"
                 }
             }
         }   
