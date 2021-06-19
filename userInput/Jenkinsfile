@@ -1,4 +1,4 @@
-InputValue=false
+InputValue='false'
 
 pipeline{
     
@@ -15,14 +15,13 @@ pipeline{
                             choice(name: 'CHOICE', choices: [true, false], description: 'Enter your Choice'),
                         ]
                     )
-                    println(InputValue)
                 }
             }
         }
         stage("Second Step"){
             when {
                 expression {
-                    InputValue
+                    InputValue == 'true'
                 }
             }
             steps{
