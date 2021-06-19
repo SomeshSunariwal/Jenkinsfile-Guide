@@ -1,4 +1,4 @@
-InputValue='false'
+InputValue=false
 
 pipeline{
     
@@ -8,7 +8,7 @@ pipeline{
         stage("First Step"){
             steps{
                 script {
-                    def InputValue = input(
+                    InputValue = input(
                         id: 'userInput',
                         message: 'User input required - Some Yes or No question?',
                         parameters: [
@@ -21,7 +21,7 @@ pipeline{
         stage("Second Step"){
             when {
                 expression {
-                    InputValue == 'true'
+                    InputValue == true
                 }
             }
             steps{
