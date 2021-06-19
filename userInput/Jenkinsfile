@@ -19,12 +19,14 @@ pipeline{
             }
         }
         stage("Second Step"){
-            steps{
+            when {
                 expression {
                     InputValue
                 }
             }
-            echo "InputValue is ${InputValue} That is why it Ran"   
+            steps{
+                echo "InputValue is ${InputValue} That is why it Ran"   
+            }
         }
     }
 }
