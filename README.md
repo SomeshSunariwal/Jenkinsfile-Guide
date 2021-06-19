@@ -122,6 +122,16 @@ steps{
 }
 ```
 
+# Issues and Solutions
+
+### 1. Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post some-link : dial unix /var/run/docker.sock: connect: permission denied
+
+`solution : ` change the permission of docker.sock
+
+```bash
+sudo chmod 777 /var/run/docker.sock
+```
+
 # Resource
 
 https://www.jenkins.io/doc/book/pipeline/syntax/
