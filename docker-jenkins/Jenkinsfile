@@ -5,8 +5,9 @@ pipeline{
     environment {
         registry = "someshdokerbox/test"
         registryCredential = 'docker-hub'
+        dockerImage = ''
     }
-    
+
     stages{
         stage("Build Docker Image") {
             steps {
