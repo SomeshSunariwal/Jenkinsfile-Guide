@@ -32,3 +32,19 @@ post {
     }
 }
 ```
+
+## 3. When Condition
+
+```
+stage('stage'){
+    // only run wen condition fulfilled
+    when {
+        expression {
+            BRANCH == 'dev' && NAME == 'Test'
+        }
+    }
+    steps{
+        echo 'Test Done'
+    }
+}
+```

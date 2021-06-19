@@ -1,5 +1,5 @@
-BRANCH='test'
-NAME='new'
+BRANCH='dev'
+NAME='test'
 
 pipeline {
     agent any
@@ -11,10 +11,10 @@ pipeline {
             }
         }
         stage('Test'){
-            // only run wen condition fullfiled
+            // only run wen condition fulfilled
             when {
                 expression {
-                    BRANCH == 'dev' && NAME == 'Test'
+                    BRANCH == 'dev' && NAME == 'test'
                 }
             }
             steps{
