@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage("Build"){
+            steps{
+                echo "Build Done"
+            }
+        }
+        stage("Test"){
+            steps{
+                echo "Test Done"
+            }
+        }
+        stage("Deploy"){
+            steps{
+                echo "Deploy Done"
+            }
+        }
+    }
+    post{
+        always{
+            echo "I will run any how"
+        }
+        success{
+            echo "I am only run when above success"
+        }
+        failure{
+            echo "I am only run when above Fail"
+        }
+    }
+}
