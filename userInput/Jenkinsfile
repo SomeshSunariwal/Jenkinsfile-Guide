@@ -1,4 +1,4 @@
-InputValue=false
+InputValue='false'
 
 pipeline{
     
@@ -10,19 +10,21 @@ pipeline{
                 script {
                     InputValue = input(
                         id: 'userInput',
-                        message: 'User input required - Some Yes or No question?',
+                        message: 'Want Second Step?',
                         parameters: [
-                            choice(name: 'CHOICE', choices: [true, false], description: 'Enter your Choice'),
+                            choice(name: 'CHOICE', choices: ['true', 'false'], description: 'Enter your Choice'),
                         ]
                     )
                 }
             }
         }
         stage("Second Step"){
-            steps{
-                script {
-                    println(InputValue)
+            when {
+                expression {
+                    InputValue == 'true'
                 }
+            }
+            steps{
                 echo "InputValue is ${InputValue} That is why it Ran"   
             }
         }
