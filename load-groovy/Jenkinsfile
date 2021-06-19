@@ -1,7 +1,12 @@
 def gv = load "scripts.groovy"
 
 pipeline {
+
     agent any
+
+    parameters {
+        string (name: "NAME", defaultValue:"default", description: "Here is the description")
+    }
 
     stages {
         stage("Build"){

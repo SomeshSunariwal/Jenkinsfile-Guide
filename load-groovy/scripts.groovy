@@ -7,7 +7,7 @@ def testApp() {
 }
 
 def releaseApp() {
-    echo "Release"
+    echo "Release ${params.NAME}"
 }
 
 return this
