@@ -1,0 +1,30 @@
+InputValue=false
+
+pipeline{
+    agent{
+        label "node"
+    }
+    stages{
+        stage("First Step"){
+            steps{
+                script {
+                    def InputValue = input(
+                        id: 'userInput'
+                        message: 'User input required - Some Yes or No question?',
+                        parameters: [
+                            choice(name: 'CHOICE', choices: [true, false], description: 'Enter your Choice'),
+                        ]
+                    )
+                }
+            }
+        }
+        stage("Second Step"){
+            steps{
+                expression {
+                    InputValue
+                }
+            }
+            echo "InputValue is ${InputValue} That is why it Ran"   
+        }
+    }
+}
