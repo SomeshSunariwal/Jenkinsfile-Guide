@@ -9,7 +9,7 @@ pipeline{
             steps{
                 script {
                     def InputValue = input(
-                        id: 'userInput'
+                        id: 'userInput',
                         message: 'User input required - Some Yes or No question?',
                         parameters: [
                             choice(name: 'CHOICE', choices: [true, false], description: 'Enter your Choice'),
