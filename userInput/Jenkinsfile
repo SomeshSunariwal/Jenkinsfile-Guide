@@ -15,6 +15,7 @@ pipeline{
                             choice(name: 'CHOICE', choices: [true, false], description: 'Enter your Choice'),
                         ]
                     )
+                    println(InputValue)
                 }
             }
         }
