@@ -84,3 +84,26 @@ withCredentials([
         echo "userName : $USER, Password: $PWD"
 }
 ```
+
+## 5. Parameters
+
+```groovy
+parameters {
+    string(name: 'PERSON', defaultValue: '', description: '')
+    text(name: 'BIOGRAPHY', defaultValue: '', description: '')
+    booleanParam(name: 'TOGGLE', defaultValue: true, description: '')
+    choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: '')
+    password(name: 'PASSWORD', defaultValue: '', description: '')
+}
+stages {
+    stage {
+        step {
+            echo "${params.PERSON}"
+        }
+    }
+}
+```
+
+# Resource
+
+https://www.jenkins.io/doc/book/pipeline/syntax/
