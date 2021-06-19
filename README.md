@@ -104,6 +104,24 @@ stages {
 }
 ```
 
+## 6. User Input In build
+
+its a script so that is why we have to handle it inside the script that uses groovy
+
+```groovy
+steps{
+    script {
+        InputValue = input(
+            id: 'userInput',
+            message: 'Want Second Step?',
+            parameters: [
+                choice(name: 'CHOICE', choices: ['true', 'false'], description: 'Enter your Choice'),
+            ]
+        )
+    }
+}
+```
+
 # Resource
 
 https://www.jenkins.io/doc/book/pipeline/syntax/
