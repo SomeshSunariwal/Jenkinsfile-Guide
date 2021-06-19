@@ -6,21 +6,21 @@ pipeline {
     stages {
         stage("Build"){
             steps{
-                scripts {
+                script {
                     gv.buildApp()
                 }    
             }
         }
         stage("Test"){
             steps{
-                scripts {
+                script {
                     gv.testApp()
                 }    
             }
         }
         stage("Release"){
             steps{
-                scripts {
+                script {
                     gv.releaseApp()
                 }    
             }
