@@ -1,4 +1,4 @@
-def gv = load "scripts.groovy"
+def gv
 
 pipeline {
 
@@ -9,6 +9,13 @@ pipeline {
     }
 
     stages {
+        stage("Init"){
+            steps{
+                script {
+                    gv = load "scripts.groovy"
+                }    
+            }
+        }
         stage("Build"){
             steps{
                 script {
