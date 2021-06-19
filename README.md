@@ -4,7 +4,7 @@ Jenkins-Guide
 
 ## 1. Starter Template
 
-```JenkinsFile
+```groovy
 pipeline {
     agent any
     stages {
@@ -19,7 +19,7 @@ pipeline {
 
 ## 2. Post Operation
 
-```
+```groovy
 post {
     always {
         echo "I will always run"
@@ -35,7 +35,7 @@ post {
 
 ## 3. When Condition
 
-```
+```groovy
 stage('stage'){
     // only run wen condition fulfilled
     when {
@@ -45,6 +45,30 @@ stage('stage'){
     }
     steps{
         echo 'Test Done'
+    }
+}
+```
+
+## Environment Variables
+
+Jenkins provide by default env variables that can be seen here :
+http://localhost:8080/env-vars.html
+
+### Setting up own env variables
+
+```groovy
+pipeline {
+    agent any
+
+    environment {
+        version = '1.0'
+    }
+    stages {
+        stage ("build") {
+            steps {
+                echo "version : ${version}"
+            }
+        }
     }
 }
 ```
