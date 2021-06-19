@@ -25,6 +25,8 @@ pipeline {
                 withCredentials([
                     usernamePassword(credentialsId: 'default-test-id', usernameVariable: 'USER', passwordVariable: 'PWD')
                 ]) {
+                    // Never echo User Name Password
+                    // Only for Test
                     echo "userName : $USER, Password: $PWD"
                 }
             }
