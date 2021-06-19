@@ -4,14 +4,14 @@ pipeline {
 
     environment {
         // Setting the variable to env
-        PASSWORD = credentials('default-test-id')
+        passcode = credentials('default-test-id')
     }
 
     stages {
         stage("Build"){
             steps{
                 echo "Checking Version . . ."
-                echo "Version is ${PASSWORD}"
+                echo "Version is ${passcode}"
             }
         }   
         stage("require credentials here only"){
