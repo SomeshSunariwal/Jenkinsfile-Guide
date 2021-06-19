@@ -49,7 +49,7 @@ stage('stage'){
 }
 ```
 
-## Environment Variables
+## 4. Environment Variables
 
 Jenkins provide by default env variables that can be seen here :
 http://localhost:8080/env-vars.html
@@ -70,5 +70,17 @@ pipeline {
             }
         }
     }
+}
+```
+
+### Use Jenkins Credentials
+
+```groovy
+withCredentials([
+        usernamePassword(credentialsId: 'default-test-id', usernameVariable: 'USER', passwordVariable: 'PWD')
+    ]) {
+        // Never echo User Name Password
+        // Only for Test
+        echo "userName : $USER, Password: $PWD"
 }
 ```
