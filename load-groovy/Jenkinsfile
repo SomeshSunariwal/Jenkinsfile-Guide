@@ -11,31 +11,22 @@ pipeline {
     stages {
         stage("Init"){
             steps{
-                script {
-                    gv = load "script.groovy"
-                }    
                 echo "here"
             }
         }
         stage("Build"){
             steps{
-                script {
-                    gv.buildApp()
-                }    
+                echo "here"
             }
         }
         stage("Test"){
             steps{
-                script {
-                    gv.testApp()
-                }    
+                echo "here"
             }
         }
         stage("Release"){
             steps{
-                script {
-                    gv.releaseApp()
-                }    
+                echo "here"
             }
         }
     }
