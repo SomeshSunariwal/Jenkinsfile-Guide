@@ -21,9 +21,9 @@ pipeline {
                 echo "when we require credentials in one step one"
 
                 withCredentials([
-                    usernamePassword(credentialsId: 'default-test-id', usernameVariable: USER, passwordVariable: PWD)
+                    usernamePassword(credentialsId: 'default-test-id', usernameVariable: 'USER', passwordVariable: 'PWD')
                 ]) {
-                    sh "userName : ${USER}, Password: ${PWD}"
+                    echo "userName : $USER, Password: $PWD"
                 }
             }
         }   
