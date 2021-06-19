@@ -14,6 +14,7 @@ pipeline {
                 script {
                     gv = load "script.groovy"
                 }    
+                echo "here"
             }
         }
         stage("Build"){
