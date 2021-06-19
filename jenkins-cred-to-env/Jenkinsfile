@@ -1,0 +1,29 @@
+pipeline {
+    
+    agent any
+
+    environment {
+        // Setting the variable to env
+        PASSWORD = credentials('default-test-id')
+    }
+
+    stages {
+        stage("Build"){
+            steps{
+                echo "Checking Version . . ."
+                echo "Version is ${PASSWORD}"
+            }
+        }   
+        stage("require credentials here only"){
+            steps{
+                echo "Getting Crential First Here"
+                echo "when we require credentials in one step one"
+                withCredentials([
+                    usernamePassword(credentials: 'default-test-id', uesrnameVariable: userName, passwordVariable: password)
+                ]) {
+                    sh "userName : ${userName}, Password: ${password}"
+                }
+            }
+        }   
+    }
+}
